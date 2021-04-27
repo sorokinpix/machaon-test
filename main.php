@@ -4,13 +4,13 @@ require 'settings.php';
 
 /**
  * Функция для получения настроек проекта которые хранятся в файле 'settings.php'.
- * @global resource $settings
+ * @global array $return
  */
 function config(string $param, $default=null): string
 {
-    global $settings;
+    global $return;
     $paramsArr = explode('.', $param);
-    $lastObject = &$settings;
+    $lastObject = &$return;
     foreach ($paramsArr as &$key) {
         if(!array_key_exists($key, $lastObject)) {
             if(is_null($default));
